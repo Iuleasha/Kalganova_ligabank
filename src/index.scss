@@ -1,0 +1,40 @@
+@import-normalize;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto-Regular"),
+  local("Roboto-Regular"),
+  url("./fonts/Roboto-Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Medium"),
+  local("Roboto-Medium"),
+  url("./fonts/Roboto-Medium.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "WorkSans";
+  src: local("WorkSans-Bold"),
+  local("WorkSans-Bold"),
+  url("./fonts/WorkSans-Bold.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+body{
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}

@@ -1,0 +1,15 @@
+.user__button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #1F1E25;
+
+  &:hover,
+  &:active {
+    color: #2C36F2;
+  }
+}
+
+.user__button-text {
+  margin-left: 10px;
+}

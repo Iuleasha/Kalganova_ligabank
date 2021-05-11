@@ -1,0 +1,99 @@
+﻿.history__wrapper {
+  width: 1170px;
+  background: #f6f7ff;
+  margin: 0 auto;
+  margin-bottom: 110px;
+  padding: 40px 70px;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 1px;
+    height: calc(100% - 188px);
+    top: 100px;
+    left: 50%;
+    background: #c1c2ca;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: block;
+    position: absolute;
+  }
+}
+
+.history__title {
+  margin: 0 0 30px;
+  font-size: 28px;
+  line-height: 39px;
+  font-weight: bold;
+}
+
+.history__table-wrapper {
+  font-size: 18px;
+  line-height: 23px;
+  color: #1f1e25;
+}
+
+.history__table {
+  margin-top: 50px;
+  margin-bottom: 53px;
+}
+
+.history__table-string {
+  display: flex;
+}
+
+.history__table-currency,
+.history__table-date,{
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  &:first-child {
+    width: 130px;
+  }
+
+  &--arrow {
+    width: 64px;
+    height: 16px;
+    background: url("../../img/arrow.svg") no-repeat center;
+    background-size: 40px auto;
+    display: block;
+  }
+}
+
+.history__button {
+  margin-top: 40px;
+  width: 198px;
+  height: 51px;
+  background: #2c36f2;
+  color: #f6f7ff;
+
+  &:hover {
+    opacity: 0.8;
+    color: #f6f7ff;
+  }
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.history__table-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: repeat(5, 46px);
+}
+
+@for $i from 1 through 5 {
+  .history__table-string:nth-child(#{$i}) {
+    grid-column: 1;
+    grid-row: $i;
+    align-self: center;
+  }
+
+  .history__table-string:nth-child(#{$i + 5}) {
+    grid-column: 2;
+    grid-row: $i;
+    justify-self: end;
+    align-self: center;
+  }
+}

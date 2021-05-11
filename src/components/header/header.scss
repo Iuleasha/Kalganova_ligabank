@@ -1,0 +1,18 @@
+.page__header {
+  width: 1170px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 27px;
+  padding-bottom: 39px;
+  justify-content: space-between;
+}
+
+.page__header-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+

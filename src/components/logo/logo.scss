@@ -1,0 +1,19 @@
+.logo {
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  margin-right: 58px;
+}
+
+.logo__title {
+  font-family: WorkSans, sans-serif;
+  font-weight: bold;
+  margin-left: 9px;
+  color: #1F1E25;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.logo__uppercase {
+  text-transform: uppercase;
+}
