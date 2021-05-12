@@ -3,7 +3,7 @@ import "./input-number.scss";
 function InputNumber({ name, handlerChange, label, value , disabled = false}) {
   return (
     <label className="form-label form-label__input">
-      {label && <p className="form-label__text">{label}</p>}
+      {label && <div className="form-label__text">{label}</div>}
       <input
         className="form-label__item"
         value={value}

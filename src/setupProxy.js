@@ -4,7 +4,7 @@ module.exports = function(app) {
     app.use(
         '/api',
         createProxyMiddleware({
-            target: 'https://currate.ru',
+            target: 'https://free.currconv.com',
             changeOrigin: true,
         })
     );

@@ -1,29 +1,49 @@
-import {Link} from 'react-router-dom';
-import './navigation.scss';
+import { NavLink } from "react-router-dom";
+import { uniqueId } from "../../utils/utils";
+import "./navigation.scss";
+
+const navigation = [
+  {
+    text: "Услуги",
+    url: "/services",
+  },
+  {
+    text: "Рассчитать кредит",
+    url: "/credit",
+  },
+  {
+    text: "Конвертер валют",
+    url: "/converter",
+  },
+  {
+    text: "Контакты",
+    url: "/comtacts",
+  },
+  {
+    text: "Задать вопрос",
+    url: "/faq",
+  },
+];
 
 function Navigation() {
-    return (
-        <nav className="main__nav">
-            <ul className="nav__list">
-                <li className="nav__list-item">
-                    <Link className="nav__list-link" aria-label="Услуги" to="#">Услуги</Link>
-                </li>
-                <li className="nav__list-item">
-                    <Link className="nav__list-link" aria-label="Рассчитать кредит" to="#">Рассчитать кредит</Link>
-                </li>
-                <li className="nav__list-item">
-                    <Link className="nav__list-link nav__list-link--active" aria-label="Конвертер валют" to="#">Конвертер
-                        валют</Link>
-                </li>
-                <li className="nav__list-item">
-                    <Link className="nav__list-link" aria-label="Контакты" to="#">Контакты</Link>
-                </li>
-                <li className="nav__list-item">
-                    <Link className="nav__list-link" aria-label="Задать вопрос" to="#">Задать вопрос</Link>
-                </li>
-            </ul>
-        </nav>
-    );
+  return (
+    <nav className="main__nav">
+      <ul className="nav__list">
+        {navigation.map((item) => (
+          <li key={uniqueId()} className="nav__list-item">
+            <NavLink
+              className="nav__list-link"
+              activeClassName="nav__list-link--active"
+              aria-label="Услуги"
+              to={item.url}
+            >
+              {item.text}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 }
 
 export default Navigation;

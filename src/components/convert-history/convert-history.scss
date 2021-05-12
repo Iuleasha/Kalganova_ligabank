@@ -1,8 +1,7 @@
 ﻿.history__wrapper {
   width: 1170px;
   background: #f6f7ff;
-  margin: 0 auto;
-  margin-bottom: 110px;
+  margin: 0 auto 110px;
   padding: 40px 70px;
   position: relative;
 
@@ -41,15 +40,21 @@
   display: flex;
 }
 
-.history__table-currency,
-.history__table-date,{
-  max-width: 150px;
+.history__amount {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  &:first-child {
-    width: 130px;
-  }
+  display: inline-block;
+  max-width: 120px;
+}
+
+.history__table-date {
+  width: 130px;
+}
+
+.history__table-currency {
+  display: flex;
+  align-items: center;
 
   &--arrow {
     width: 64px;
@@ -61,11 +66,12 @@
 }
 
 .history__button {
-  margin-top: 40px;
+  margin-top: 48px;
   width: 198px;
   height: 51px;
   background: #2c36f2;
   color: #f6f7ff;
+  font-size: 16px;
 
   &:hover {
     opacity: 0.8;
@@ -87,13 +93,15 @@
   .history__table-string:nth-child(#{$i}) {
     grid-column: 1;
     grid-row: $i;
-    align-self: center;
+    align-self: flex-end;
+    align-items: center;
   }
 
   .history__table-string:nth-child(#{$i + 5}) {
     grid-column: 2;
     grid-row: $i;
     justify-self: end;
-    align-self: center;
+    align-self: flex-end;
+    align-items: center;
   }
 }
