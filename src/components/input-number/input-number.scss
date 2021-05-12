@@ -1,4 +1,4 @@
-.form-label {
+.form__label {
   display: flex;
   flex-direction: column;
   font-size: 22px;
@@ -6,10 +6,10 @@
   text-align: left;
 }
 
-.form-label__item{
+.form__label-item {
   width: 390px;
   height: 60px;
-  border: 1px solid #1F1E25;
+  border: 1px solid #1f1e25;
   border-radius: 4px;
   padding: 13px 0;
   text-align: center;
@@ -18,15 +18,12 @@
 
   &:hover,
   &:focus {
-    border-color: #2C36F2;
+    border-color: #2c36f2;
   }
 }
 
-//input[type=number]::-webkit-inner-spin-button {
-//  -webkit-appearance: none;
-//}
-input[type='number'] {
-  -moz-appearance:textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 input::-webkit-outer-spin-button,
@@ -34,6 +31,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-.form-label__text {
+.form__label-text {
   margin-bottom: 22px;
 }

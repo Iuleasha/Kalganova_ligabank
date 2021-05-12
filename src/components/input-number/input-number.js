@@ -1,19 +1,21 @@
 import "./input-number.scss";
+import { InputNumberType } from "../../types/types";
 
-function InputNumber({ name, handlerChange, label, value , disabled = false}) {
+function InputNumber({ name, onChange, label, value, disabled = false }) {
   return (
-    <label className="form-label form-label__input">
-      {label && <div className="form-label__text">{label}</div>}
+    <label className="form__label form__label-input">
+      {label && <div className="form__label-text">{label}</div>}
       <input
-        className="form-label__item"
+        className="form__label-item"
         value={value}
         name={name}
         disabled={disabled}
-        onChange={(evt) => handlerChange(evt.target)}
+        onChange={(evt) => onChange(evt.target)}
         type="number"
       />
     </label>
   );
 }
 
+InputNumber.propTypes = InputNumberType;
 export default InputNumber;

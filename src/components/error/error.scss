@@ -1,4 +1,4 @@
-.error__wrapper{
+.error {
   background-color: rgb(241, 208, 207);
   width: 300px;
   position: fixed;
@@ -6,11 +6,11 @@
   right: 50px;
   z-index: 1;
   border-radius: 4px;
-  border-left: 6px solid #FF0000;
+  border-left: 6px solid #ff0000;
   padding: 15px 25px;
   line-height: 1.2;
 }
-.error__text{
+.error__text {
   color: #333333;
   font-size: 20px;
 }

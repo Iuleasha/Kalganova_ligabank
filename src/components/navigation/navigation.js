@@ -27,7 +27,7 @@ const navigation = [
 
 function Navigation() {
   return (
-    <nav className="main__nav">
+    <nav className="nav">
       <ul className="nav__list">
         {navigation.map((item) => (
           <li key={uniqueId()} className="nav__list-item">

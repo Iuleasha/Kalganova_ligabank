@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "ЛИГА Банк",
+  "name": "ЛИГА Банк",
   "icons": [
     {
       "src": "favicon.ico",
@@ -15,11 +15,11 @@
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x461"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#2C36F2",
   "background_color": "#ffffff"
 }

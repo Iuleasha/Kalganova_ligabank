@@ -1,8 +1,8 @@
 import "./input-date.scss";
-
-function InputDate({ name, min, max, value, handleSelectDate }) {
+import { InputDataType } from "../../types/types";
+function InputDate({ name, min, max, value, onChange }) {
   return (
-    <label>
+    <label className="input__date-label">
       <input
         className="input__date-form"
         type="date"
@@ -10,11 +10,11 @@ function InputDate({ name, min, max, value, handleSelectDate }) {
         min={min}
         max={max}
         defaultValue={value}
-        onChange={(evt) => handleSelectDate(evt.target)}
+        onChange={(evt) => onChange(evt.target)}
         required
       />
     </label>
   );
 }
-
+InputDate.propTypes = InputDataType;
 export default InputDate;

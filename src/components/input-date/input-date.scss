@@ -1,5 +1,5 @@
 .input__date-form {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
   background: url("../../img/calendar.svg") no-repeat center right 18px;
   background-size: 41px 44px;
 
@@ -11,7 +11,7 @@
 .input__date-form {
   width: 390px;
   height: 60px;
-  border: 1px solid #1F1E25;
+  border: 1px solid #1f1e25;
   border-radius: 4px;
   padding: 13px 0;
   text-align: center;
@@ -20,6 +20,6 @@
 
   &:hover,
   &:focus {
-    border-color: #2C36F2;
+    border-color: #2c36f2;
   }
 }

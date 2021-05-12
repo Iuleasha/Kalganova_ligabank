@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
-  CURRENCY,
+  CURRENCIES,
   CURRENT_ISO_DATE,
   getMinDateFromCurrent,
 } from "../../constants";
@@ -23,12 +23,30 @@ function Converter() {
     from: "",
     to: "",
     date: CURRENT_ISO_DATE,
-    currencyFrom: CURRENCY[0],
-    currencyTo: CURRENCY[1],
+    currencyFrom: CURRENCIES[0],
+    currencyTo: CURRENCIES[1],
   });
   const [exchangeValue, setExchangeValue] = useState(0);
   const [convertType, changeConvertType] = useState("from");
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+
+  const converterValueUpdateHandler = ({ name, value }) => {
+    setConverterValue({
+      ...converterValue,
+      [name]: value,
+    });
+  };
+
+  const changeInputNumberHandler = ({ name, value }) => {
+    converterValueUpdateHandler({ name, value });
+    changeConvertType(name);
+  };
+
+  const saveResultHandler = (evt) => {
+    dispatch(addToHistory(converterValue));
+    evt.preventDefault();
+  };
 
   useEffect(() => {
     if (convertType === "from" && converterValue.from) {
@@ -76,66 +94,47 @@ function Converter() {
     converterValue.date,
   ]);
 
-  const dispatch = useDispatch();
-
-  const updateConverterValue = ({ name, value }) => {
-    setConverterValue({
-      ...converterValue,
-      [name]: value,
-    });
-  };
-
-  const handleChangeInputNumber = ({ name, value }) => {
-    updateConverterValue({ name, value });
-    changeConvertType(name);
-  };
-
-  const handleSaveResult = (evt) => {
-    dispatch(addToHistory(converterValue));
-    evt.preventDefault();
-  };
-
   return (
     <>
       <HeadWrapper />
 
       <section className="converter__wrapper">
         <h2 className="converter__title">Конвертер валют</h2>
-        <form className="converter__form-wrapper" onSubmit={handleSaveResult}>
+        <form className="converter__form-wrapper" onSubmit={saveResultHandler}>
           <div className="converter__form-name">
             <div className="converter__input-number">
               <InputNumber
                 name="from"
-                handlerChange={handleChangeInputNumber}
+                onChange={changeInputNumberHandler}
                 label="У меня есть"
                 disabled={!!error}
                 value={converterValue.from}
               />
             </div>
             <Select
-              options={CURRENCY.filter(
+              options={CURRENCIES.filter(
                 (item) => item !== converterValue.currencyTo
               )}
-              defaultValue={CURRENCY[0]}
-              handlerChange={updateConverterValue}
+              defaultValue={CURRENCIES[0]}
+              onChange={converterValueUpdateHandler}
               name="currencyFrom"
             />
             <div className="converter__form-arrow" />
             <div className="converter__input-number">
               <InputNumber
                 name="to"
-                handlerChange={handleChangeInputNumber}
+                onChange={changeInputNumberHandler}
                 label="Хочу приобрести"
                 disabled={!!error}
                 value={converterValue.to}
               />
             </div>
             <Select
-              options={CURRENCY.filter(
+              options={CURRENCIES.filter(
                 (item) => item !== converterValue.currencyFrom
               )}
-              defaultValue={CURRENCY[1]}
-              handlerChange={updateConverterValue}
+              defaultValue={CURRENCIES[1]}
+              onChange={converterValueUpdateHandler}
               name="currencyTo"
             />
           </div>
@@ -145,7 +144,7 @@ function Converter() {
               name="date"
               max={CURRENT_ISO_DATE}
               min={getMinDateFromCurrent(DAYS_FROM_CURRENT)}
-              handleSelectDate={updateConverterValue}
+              onChange={converterValueUpdateHandler}
             />
             <button
               type="submit"
